@@ -1,0 +1,13 @@
+<SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp Thread Group" enabled="true">
+	<stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+	<elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+		<boolProp name="LoopController.continue_forever">false</boolProp>
+		<stringProp name="LoopController.loops">1</stringProp>
+	</elementProp>
+	<stringProp name="ThreadGroup.num_threads">1</stringProp>
+	<stringProp name="ThreadGroup.ramp_time">1</stringProp>
+	<boolProp name="ThreadGroup.scheduler">true</boolProp>
+	<stringProp name="ThreadGroup.duration"></stringProp>
+	<stringProp name="ThreadGroup.delay"></stringProp>
+</SetupThreadGroup>
+<hashTree></hashTree>

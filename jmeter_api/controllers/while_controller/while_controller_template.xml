@@ -1,0 +1,4 @@
+<WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+	<stringProp name="WhileController.condition"></stringProp>
+</WhileController>
+<hashTree></hashTree>

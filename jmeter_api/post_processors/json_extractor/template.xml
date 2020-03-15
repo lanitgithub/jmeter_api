@@ -1,0 +1,6 @@
+<JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+	<stringProp name="JSONPostProcessor.referenceNames"></stringProp>
+	<stringProp name="JSONPostProcessor.jsonPathExprs"></stringProp>
+	<stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+</JSONPostProcessor>
+<hashTree/>

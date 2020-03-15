@@ -1,0 +1,4 @@
+<RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller IGN" enabled="true">
+	<intProp name="InterleaveControl.style">0</intProp>
+</RandomController>
+<hashTree></hashTree>

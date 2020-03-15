@@ -1,0 +1,11 @@
+<ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+	<intProp name="ThroughputController.style">1</intProp>
+	<boolProp name="ThroughputController.perThread">true</boolProp>
+	<intProp name="ThroughputController.maxThroughput">1</intProp>
+	<FloatProperty>
+		<name>ThroughputController.percentThroughput</name>
+		<value>500.0</value>
+		<savedValue>0.0</savedValue>
+	</FloatProperty>
+</ThroughputController>
+<hashTree></hashTree>

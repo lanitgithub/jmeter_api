@@ -1,0 +1,9 @@
+<RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+	<stringProp name="maximumValue"></stringProp>
+	<stringProp name="minimumValue">1</stringProp>
+	<stringProp name="outputFormat"></stringProp>
+	<boolProp name="perThread">false</boolProp>
+	<stringProp name="randomSeed"></stringProp>
+	<stringProp name="variableName"></stringProp>
+</RandomVariableConfig>
+<hashTree/>

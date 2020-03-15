@@ -1,0 +1,5 @@
+<ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+    <stringProp name="TestPlan.comments"></stringProp>
+    <stringProp name="ConstantTimer.delay">300</stringProp>
+</ConstantTimer>
+<hashTree/>

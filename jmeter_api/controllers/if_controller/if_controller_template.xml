@@ -1,0 +1,6 @@
+<IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+    <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+    <boolProp name="IfController.evaluateAll">false</boolProp>
+    <boolProp name="IfController.useExpression">true</boolProp>
+</IfController>
+<hashTree></hashTree>

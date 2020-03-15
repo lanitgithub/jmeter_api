@@ -1,0 +1,8 @@
+<JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+	<stringProp name="cacheKey">true</stringProp>
+	<stringProp name="filename"></stringProp>
+	<stringProp name="parameters"></stringProp>
+	<stringProp name="script"></stringProp>
+	<stringProp name="scriptLanguage">groovy</stringProp>
+</JSR223PreProcessor>
+<hashTree/>

@@ -1,0 +1,6 @@
+<DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+	<boolProp name="displayJMeterProperties">false</boolProp>
+	<boolProp name="displayJMeterVariables">true</boolProp>
+	<boolProp name="displaySystemProperties">false</boolProp>
+</DebugSampler>
+<hashTree></hashTree>

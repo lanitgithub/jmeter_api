@@ -1,0 +1,6 @@
+<SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Size Assertion" enabled="true">
+	<stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+	<stringProp name="SizeAssertion.size"></stringProp>
+	<intProp name="SizeAssertion.operator">1</intProp>
+</SizeAssertion>
+<hashTree/>

@@ -1,0 +1,11 @@
+<com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="bzm - Random CSV Data Set Config" enabled="true">
+	<stringProp name="filename"></stringProp>
+	<stringProp name="fileEncoding">UTF-8</stringProp>
+	<stringProp name="delimiter">,</stringProp>
+	<stringProp name="variableNames"></stringProp>
+	<boolProp name="randomOrder">true</boolProp>
+	<boolProp name="ignoreFirstLine">false</boolProp>
+	<boolProp name="rewindOnTheEndOfList">true</boolProp>
+	<boolProp name="independentListPerThread">false</boolProp>
+</com.blazemeter.jmeter.RandomCSVDataSetConfig>
+<hashTree/>

@@ -1,0 +1,10 @@
+<RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+        <stringProp name="TestPlan.comments"></stringProp>
+        <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+        <stringProp name="RegexExtractor.refname"></stringProp>
+        <stringProp name="RegexExtractor.regex"></stringProp>
+        <stringProp name="RegexExtractor.template"></stringProp>
+        <stringProp name="RegexExtractor.default"></stringProp>
+        <stringProp name="RegexExtractor.match_number"></stringProp>
+    </RegexExtractor>
+<hashTree/>

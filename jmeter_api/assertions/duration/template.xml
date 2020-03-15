@@ -1,0 +1,4 @@
+<DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+	<stringProp name="DurationAssertion.duration"></stringProp>
+</DurationAssertion>
+<hashTree/>

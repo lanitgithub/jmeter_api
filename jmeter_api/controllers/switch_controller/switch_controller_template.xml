@@ -1,0 +1,4 @@
+<SwitchController guiclass="SwitchControllerGui" testclass="SwitchController" testname="Switch Controller" enabled="true">
+	<stringProp name="SwitchController.value">${value}</stringProp>
+</SwitchController>
+<hashTree></hashTree>

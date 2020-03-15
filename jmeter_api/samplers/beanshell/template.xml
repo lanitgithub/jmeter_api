@@ -1,0 +1,7 @@
+<BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
+	<stringProp name="BeanShellSampler.query">4</stringProp>
+	<stringProp name="BeanShellSampler.filename">3</stringProp>
+	<stringProp name="BeanShellSampler.parameters">2</stringProp>
+	<boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+</BeanShellSampler>
+<hashTree></hashTree>

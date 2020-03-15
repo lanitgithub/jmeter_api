@@ -1,0 +1,6 @@
+<CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+  <boolProp name="clearEachIteration">false</boolProp>
+  <boolProp name="useExpires">true</boolProp>
+  <intProp name="maxSize"></intProp>
+</CacheManager>
+<hashTree/>

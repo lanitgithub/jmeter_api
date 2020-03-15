@@ -1,0 +1,6 @@
+<ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+	<collectionProp name="ModuleController.node_path">
+		<stringProp name="764597751">Test Plan</stringProp>
+	</collectionProp>
+</ModuleController>
+<hashTree/>

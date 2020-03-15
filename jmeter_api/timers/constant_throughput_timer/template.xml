@@ -1,0 +1,10 @@
+<ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+  <intProp name="calcMode">0</intProp>
+  <doubleProp>
+    <name>throughput</name>
+    <value>0.0</value>
+    <savedValue>0.0</savedValue>
+  </doubleProp>
+  <stringProp name="TestPlan.comments"></stringProp>
+</ConstantThroughputTimer>
+<hashTree/>

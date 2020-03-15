@@ -1,0 +1,5 @@
+<TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
+	<boolProp name="TransactionController.includeTimers">false</boolProp>
+	<boolProp name="TransactionController.parent">false</boolProp>
+</TransactionController>
+<hashTree></hashTree>

@@ -1,0 +1,7 @@
+<elementProp name="" elementType="Authorization">
+	<stringProp name="Authorization.url">1</stringProp>
+	<stringProp name="Authorization.username">2</stringProp>
+	<stringProp name="Authorization.password">3</stringProp>
+	<stringProp name="Authorization.domain">4</stringProp>
+	<stringProp name="Authorization.realm">5</stringProp>
+</elementProp>

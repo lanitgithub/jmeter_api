@@ -1,0 +1,13 @@
+<JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+    <stringProp name="dataSource"></stringProp>
+    <stringProp name="queryType">Select Statement</stringProp>
+    <stringProp name="query"></stringProp>
+    <stringProp name="queryArguments"></stringProp>
+    <stringProp name="queryArgumentsTypes"></stringProp>
+    <stringProp name="variableNames"></stringProp>
+    <stringProp name="resultVariable"></stringProp>
+    <stringProp name="queryTimeout"></stringProp>
+    <stringProp name="resultSetHandler">Store as String</stringProp>
+    <stringProp name="TestPlan.comments"></stringProp>
+</JDBCSampler>
+<hashTree></hashTree>

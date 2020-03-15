@@ -1,0 +1,13 @@
+<CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+  <stringProp name="TestPlan.comments">CommentsField</stringProp>
+  <stringProp name="delimiter">,</stringProp>
+  <stringProp name="fileEncoding">UTF-8</stringProp>
+  <stringProp name="filename">D:/ApacheJMeter.jar</stringProp>
+  <boolProp name="ignoreFirstLine">false</boolProp>
+  <boolProp name="quotedData">false</boolProp>
+  <boolProp name="recycle">true</boolProp>
+  <stringProp name="shareMode">shareMode.all</stringProp>
+  <boolProp name="stopThread">false</boolProp>
+  <stringProp name="variableNames">var1,var2,var3</stringProp>
+</CSVDataSet>
+<hashTree/>

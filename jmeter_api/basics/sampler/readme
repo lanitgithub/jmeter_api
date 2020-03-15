@@ -1,0 +1,2 @@
+Class UserDefinedVariables in elements.py is only used in HttpSampler.
+This is NOT user defined variable sampler from Config Element list in jmeter.

@@ -1,0 +1,5 @@
+<InterleaveControl guiclass="InterleaveControlGui" testclass="InterleaveControl" testname="Interleave Controller" enabled="true">
+	<intProp name="InterleaveControl.style">0</intProp>
+	<boolProp name="InterleaveControl.accrossThreads">true</boolProp>
+</InterleaveControl>
+<hashTree></hashTree>

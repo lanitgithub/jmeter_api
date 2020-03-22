@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 with open('README.md', 'r') as f:
-    readme = f.read()
+    README = f.read()
 # with open('HISTORY.md', 'r', 'utf-8') as f:
 #     history = f.read()
 
@@ -11,7 +11,7 @@ setup(
     name='jmeter_api',
     version='0.3',
     description='JMeter test plan builder',
-    long_description=readme,
+    long_description=README,
     author='Alexey Svetlov',
     author_email='alexeysvetlov92@gmail.com',
     url='https://github.com/lanitgithub/jmeter_api',
@@ -23,9 +23,8 @@ setup(
         'atomicwrites', 'attrs', 'colorama',
         'importlib-metadata', 'Jinja2', 'MarkupSafe',
         'more-itertools', 'packaging', 'pluggy',
-        'py', 'pyparsing', 'pytest',
-        'python-dateutil', 'six', 'wcwidth', 'xmltodict',
-        'zipp',
+        'py', 'pyparsing', 'python-dateutil', 'six', 
+        'wcwidth', 'xmltodict','zipp',
     ],
     classifiers=[
         # How mature is this project? Common values are

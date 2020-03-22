@@ -1,67 +1,57 @@
+currentBuild.description = "${env.JOB_NAME} #${BUILD_NUMBER}"
 pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '10')) // Retain history on the last 10 builds
-    ansiColor('xterm') // Enable colors in terminal
     timestamps() // Append timestamps to each line
     timeout(time: 20, unit: 'MINUTES') // Set a timeout on the total execution time of the job
   }
+  agent any
   stages {  // Define the individual processes, or stages, of your CI pipeline
     stage('Checkout') { // Checkout (git clone ...) the projects repository
       steps {
         checkout scm
       }
     }
-    stage('Setup') { // Install any dependencies you need to perform testing
-      steps {
-        script {
-          sh """
-          pip install -r requirements.txt
-          """
+    stage('Create and activate VENV'){ // Create VENV and install any dependencies you need to perform testing
+      steps{
+        sh label: 'Create VENV', script: "python3 -m venv ${env.WORKSPACE}/venv"
+        sh label: 'pip install', script: "${env.WORKSPACE}/venv/bin/pip install -e ."
+        sh label: 'pip list', script: "${env.WORKSPACE}/venv/bin/pip list"
+      }
+    }
+    stage('Linting'){ // Create VENV and install any dependencies you need to perform testing
+      steps{
+        sh label: 'Install pylint', script: "${env.WORKSPACE}/venv/bin/pip install pylint"
+        sh label: 'Pylint results', script: "${env.WORKSPACE}/venv/bin/python -m pylint ${env.WORKSPACE}/jmeter_api/*.py --errors-only"
+      }
+    }
+    stage('Analizing code cyclomatic complexity (RADON)'){
+      steps{
+        sh label: 'Install radon', script: "${env.WORKSPACE}/venv/bin/pip install radon"
+        sh label: 'Raw metrics analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon raw --summary ${env.WORKSPACE}/jmeter_api"
+        sh label: 'Maintainability Index score analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon mi ${env.WORKSPACE}/jmeter_api"
+        sh label: 'Cyclomatic complexity analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon cc --total-average --min B --order SCORE ${env.WORKSPACE}/jmeter_api"
+      }
+    }
+    stage('Running unit-tests'){
+      steps{
+        sh label: 'Install pytest', script: "${env.WORKSPACE}/venv/bin/pip install pytest"
+        sh label: 'Pytest results', script: "${env.WORKSPACE}/venv/bin/python -m pytest ${env.WORKSPACE}/jmeter_api"
+      }
+    }
+    stage('Publish on pypi'){
+      when {
+        expression { env.BRANCH_NAME == 'master' }
+      }
+      steps{
+        sh label: 'Install twine', script: "${env.WORKSPACE}/venv/bin/pip install twine"
+        sh label: 'Install wheel', script: "${env.WORKSPACE}/venv/bin/pip install wheel"
+        sh label: 'Set build number', script: "sed -i \"s/'`${env.WORKSPACE}/venv/bin/python ${env.WORKSPACE}/setup.py --version`'/'`${env.WORKSPACE}/venv/bin/python setup.py --version`.${BUILD_NUMBER}'/g\" ${env.WORKSPACE}/setup.py"
+        sh label: 'Create artifacts', script: "${env.WORKSPACE}/venv/bin/python ${env.WORKSPACE}/setup.py sdist bdist_wheel"
+        withCredentials([usernamePassword(credentialsId: 'lanit_pypi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          sh label: 'Upload dist twine', script: "${env.WORKSPACE}/venv/bin/python -m twine upload dist/* -u ${USERNAME} -p ${PASSWORD}"
         }
       }
-    }
-    stage('Linting') { // Run pylint against your code
-      steps {
-        script {
-          sh """
-          pylint **/*.py
-          """
-        }
-      }
-    }
-    stage('Unit Testing') { // Perform unit testing
-      steps {
-        script {
-          sh """
-          python -m unittest discover -s tests/unit
-          """
-        }
-      }
-    }
-    stage('Integration Testing') { //Perform integration testing
-      steps {
-        script {
-          sh """
-          # You have the option to stand up a temporary environment to perform
-          # these tests and/or run the tests against an existing environment. The
-          # advantage to the former is you can ensure the environment is clean
-          # and in a desired initial state. The easiest way to stand up a temporary
-          # environment is to use Docker and a wrapper script to orchestrate the
-          # process. This script will handle standing up supporting services like
-          # MySQL & Redis, running DB migrations, starting the web server, etc.
-          # You can utilize your existing automation, your custom scripts and Make.
-          ./standup_testing_environment.sh # Name this whatever you'd like
-          python -m unittest discover -s tests/integration
-        """
-      }
-    }
-  }  
-  post {
-    failure {
-      script {
-        msg = "Build error for ${env.JOB_NAME} ${env.BUILD_NUMBER} (${env.BUILD_URL})"
-        
-        slackSend message: msg, channel: env.SLACK_CHANNEL
     }
   }
 }

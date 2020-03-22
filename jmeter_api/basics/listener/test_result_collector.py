@@ -4,6 +4,8 @@ import pytest
 from jmeter_api.basics.listener.elements import ResultCollector
 from jmeter_api.basics.utils import tag_wrapper
 
+exist_file = "./jmeter_api/basics/listener/test_result_collector.py"
+
 
 class TestResultCollector:
     class TestGUIClass:
@@ -24,7 +26,7 @@ class TestResultCollector:
                 ResultCollector(guiclass="var", filename='not existing file')
 
         def test_positive(self):
-            ResultCollector(guiclass="var", filename="main.py")
+            ResultCollector(guiclass="var", filename=exist_file)
             
     class TestErrorLogging:
         def test_type_check(self):
@@ -353,10 +355,10 @@ class TestResultCollector:
 
 class TestResultCollectorRender:
     def test_filename(self):
-        element = ResultCollector(guiclass="var", filename='main.py')
+        element = ResultCollector(guiclass="var", filename=exist_file)
         rendered_doc = tag_wrapper(element.to_xml(), 'result')
         parsed_doc = xmltodict.parse(rendered_doc)
-        assert parsed_doc['result']['ResultCollector']['stringProp']['#text'] == 'main.py'
+        assert parsed_doc['result']['ResultCollector']['stringProp']['#text'] == './jmeter_api/basics/listener/test_result_collector.py'
 
     def test_guiclass(self):
         element = ResultCollector(guiclass="var")

@@ -1,4 +1,5 @@
 currentBuild.description = "${env.JOB_NAME} #${BUILD_NUMBER}"
+projectname = "jmeter_api"
 pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '10')) // Retain history on the last 10 builds
@@ -22,21 +23,21 @@ pipeline {
     stage('Linting'){ // Create VENV and install any dependencies you need to perform testing
       steps{
         sh label: 'Install pylint', script: "${env.WORKSPACE}/venv/bin/pip install pylint"
-        sh label: 'Pylint results', script: "${env.WORKSPACE}/venv/bin/python -m pylint ${env.WORKSPACE}/jmeter_api/*.py --errors-only"
+        sh label: 'Pylint results', script: "${env.WORKSPACE}/venv/bin/python -m pylint ${env.WORKSPACE}/${projectname}/*.py --errors-only"
       }
     }
     stage('Analizing code cyclomatic complexity (RADON)'){
       steps{
         sh label: 'Install radon', script: "${env.WORKSPACE}/venv/bin/pip install radon"
-        sh label: 'Raw metrics analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon raw --summary ${env.WORKSPACE}/jmeter_api"
-        sh label: 'Maintainability Index score analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon mi ${env.WORKSPACE}/jmeter_api"
-        sh label: 'Cyclomatic complexity analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon cc --total-average --min B --order SCORE ${env.WORKSPACE}/jmeter_api"
+        sh label: 'Raw metrics analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon raw --summary ${env.WORKSPACE}/${projectname}"
+        sh label: 'Maintainability Index score analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon mi ${env.WORKSPACE}/${projectname}"
+        sh label: 'Cyclomatic complexity analysis', script: "${env.WORKSPACE}/venv/bin/python -m radon cc --total-average --min B --order SCORE ${env.WORKSPACE}/${projectname}"
       }
     }
     stage('Running unit-tests'){
       steps{
         sh label: 'Install pytest', script: "${env.WORKSPACE}/venv/bin/pip install pytest"
-        sh label: 'Pytest results', script: "${env.WORKSPACE}/venv/bin/python -m pytest ${env.WORKSPACE}/jmeter_api"
+        sh label: 'Pytest results', script: "${env.WORKSPACE}/venv/bin/python -m pytest ${env.WORKSPACE}/${projectname}"
       }
     }
     stage('Publish on pypi'){

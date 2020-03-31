@@ -1,6 +1,27 @@
 #!/usr/bin/env python
 
 from setuptools import setup, find_packages
+import os
+import shutil
+from os.path import join
+
+path_here = os.getcwd()
+path_projects = os.path.join(path_here, "jmeter_api")
+path_build = os.path.join(path_here, "build", "lib")
+
+
+def fetch_xml_to_buid(dir_path):
+    for root, dirs, files in os.walk(dir_path):
+        for file in files:
+            if file.endswith(".xml"):
+                path_xml = os.path.join(root, file)
+                path_new = path_xml.replace(path_here, path_build)
+                shutil.copyfile(path_xml, path_new)
+                print(f"{path_xml} --> \n {path_new}")
+    return print("done")
+
+
+fetch_xml_to_buid(path_projects)
 
 with open('README.md', 'r') as f:
     README = f.read()
@@ -23,8 +44,8 @@ setup(
         'atomicwrites', 'attrs', 'colorama',
         'importlib-metadata', 'Jinja2', 'MarkupSafe',
         'more-itertools', 'packaging', 'pluggy',
-        'py', 'pyparsing', 'python-dateutil', 'six', 
-        'wcwidth', 'xmltodict','zipp',
+        'py', 'pytest', 'pyparsing', 'python-dateutil', 'six',
+        'wcwidth', 'xmltodict', 'zipp',
     ],
     classifiers=[
         # How mature is this project? Common values are

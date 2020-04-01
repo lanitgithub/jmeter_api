@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 from setuptools import setup, find_packages
+import os
+
 
 with open('README.md', 'r') as f:
     README = f.read()
@@ -23,8 +25,8 @@ setup(
         'atomicwrites', 'attrs', 'colorama',
         'importlib-metadata', 'Jinja2', 'MarkupSafe',
         'more-itertools', 'packaging', 'pluggy',
-        'py', 'pyparsing', 'python-dateutil', 'six', 
-        'wcwidth', 'xmltodict','zipp',
+        'py', 'pytest', 'pyparsing', 'python-dateutil', 'six',
+        'wcwidth', 'xmltodict', 'zipp',
     ],
     classifiers=[
         # How mature is this project? Common values are

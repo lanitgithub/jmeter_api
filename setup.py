@@ -2,7 +2,24 @@
 
 from setuptools import setup, find_packages
 import os
+from os.path import join
 
+
+def fetch_xml_path():
+    path_here = os.getcwd()
+    path_projects = os.path.join(path_here, "jmeter_api")
+    file_list = ["include README.md LICENSE", "recursive-include tests *.py"]
+    for root, dirs, files in os.walk(path_projects):
+        for file in files:
+            if file.endswith(".xml"):
+                path_xml = os.path.join(root, file)
+                file_list.append(path_xml)
+    with open("MANIFEST.in", "w") as file:
+        [file.write(f"include {i}\n") for i in file_list]
+    return file_list
+
+
+fetch_xml_path()
 
 with open('README.md', 'r') as f:
     README = f.read()
@@ -11,7 +28,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='jmeter_api',
-    version='0.3',
+    version='0.4',
     description='JMeter test plan builder',
     long_description=README,
     author='Alexey Svetlov',

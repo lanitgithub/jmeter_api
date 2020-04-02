@@ -6,10 +6,8 @@ from os.path import join
 
 
 def fetch_xml_path():
-    path_here = os.getcwd()
-    path_projects = os.path.join(path_here, "jmeter_api")
     file_list = ["include README.md LICENSE", "recursive-include tests *.py"]
-    for root, dirs, files in os.walk(path_projects):
+    for root, dirs, files in os.walk("jmeter_api"):
         for file in files:
             if file.endswith(".xml"):
                 path_xml = os.path.join(root, file)

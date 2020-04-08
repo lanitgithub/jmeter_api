@@ -9,8 +9,7 @@ def get_resources():
     for root, dirs, files in os.walk("jmeter_api"):
         for file in files:
             if file.endswith(".xml"):
-                path_xml = os.path.join(root, file)
-                file_list.append(path_xml)
+                file_list.append(f'.\\{os.path.join(root, file)}')
     return file_list
 
 

@@ -28,7 +28,6 @@ setup(
     author_email='alexeysvetlov92@gmail.com',
     url='https://github.com/lanitgithub/jmeter_api',
     # license='MIT',
-    # package_data={'': get_resources()},
     include_package_data=True,
     packages=find_packages(),
     python_requires='>=3.6',

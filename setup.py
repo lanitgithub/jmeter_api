@@ -28,6 +28,7 @@ setup(
     name='jmeter_api',
     version='0.4',
     description='JMeter test plan builder',
+    long_description_content_type='text/markdown',
     long_description=README,
     author='Alexey Svetlov',
     author_email='alexeysvetlov92@gmail.com',

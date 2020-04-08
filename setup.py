@@ -4,20 +4,15 @@ from setuptools import setup, find_packages
 import os
 from os.path import join
 
-
-def fetch_xml_path():
-    file_list = ["include README.md LICENSE", "recursive-include tests *.py"]
+def get_resources():
+    file_list = []
     for root, dirs, files in os.walk("jmeter_api"):
         for file in files:
             if file.endswith(".xml"):
                 path_xml = os.path.join(root, file)
                 file_list.append(path_xml)
-    with open("MANIFEST.in", "w") as file:
-        [file.write(f"include {i}\n") for i in file_list]
     return file_list
 
-
-fetch_xml_path()
 
 with open('README.md', 'r') as f:
     README = f.read()
@@ -34,7 +29,7 @@ setup(
     author_email='alexeysvetlov92@gmail.com',
     url='https://github.com/lanitgithub/jmeter_api',
     # license='MIT',
-    include_package_data=True,
+    package_data={'': get_resources()},
     packages=find_packages(),
     python_requires='>=3.6',
     install_requires=[

@@ -16,8 +16,6 @@ def get_resources():
 
 with open('README.md', 'r') as f:
     README = f.read()
-# with open('HISTORY.md', 'r', 'utf-8') as f:
-#     history = f.read()
 
 setup(
     name='jmeter_api',

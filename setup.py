@@ -4,18 +4,20 @@ from setuptools import setup, find_packages
 import os
 from os.path import join
 
-def get_resources():
-    file_list = []
+def create_manifest():
+    manifest_data = ['include README.md LICENSE', 'include recursive-include tests *.py']
     for root, dirs, files in os.walk("jmeter_api"):
         for file in files:
             if file.endswith(".xml"):
-                file_list.append(f'.\\{os.path.join(root, file)}')
-    return file_list
-
+                manifest_data.append(f'include {os.path.join(root, file)}')
+    with open('MANIFEST.in', 'w', encoding='utf-8') as manifest_file:
+        for line in manifest_data:
+            manifest_file.write(f'{line}\n')
 
 with open('README.md', 'r') as f:
     README = f.read()
 
+create_manifest()
 setup(
     name='jmeter_api',
     version='0.5',
@@ -26,7 +28,8 @@ setup(
     author_email='alexeysvetlov92@gmail.com',
     url='https://github.com/lanitgithub/jmeter_api',
     # license='MIT',
-    package_data={'': get_resources()},
+    # package_data={'': get_resources()},
+    include_package_data=True,
     packages=find_packages(),
     python_requires='>=3.6',
     install_requires=[

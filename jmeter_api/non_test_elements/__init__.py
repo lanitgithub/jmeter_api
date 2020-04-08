@@ -1,1 +1,1 @@
-from .test_plan.elements import TestPlan
+from jmeter_api.non_test_elements.test_plan.elements import TestPlan

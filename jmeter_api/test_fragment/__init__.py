@@ -1,1 +1,1 @@
-from .test_test_fragment import TestFragment
+from jmeter_api.test_fragment.elements import TestFragment

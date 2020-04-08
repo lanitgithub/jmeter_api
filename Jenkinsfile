@@ -12,6 +12,7 @@ pipeline {
       steps {
         sh label: 'Remove build folder', script: "rm -rf ${env.WORKSPACE}/build"
         sh label: 'Remove dist folder', script: "rm -rf ${env.WORKSPACE}/dist"
+        sh label: 'Remove venv folder', script: "rm -rf ${env.WORKSPACE}/venv"
       }
     }
     stage('Checkout') { // Checkout (git clone ...) the projects repository

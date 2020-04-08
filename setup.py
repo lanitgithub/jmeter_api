@@ -4,15 +4,6 @@ from setuptools import setup, find_packages
 import os
 from os.path import join
 
-def get_resources():
-    file_list = []
-    for root, dirs, files in os.walk("jmeter_api"):
-        for file in files:
-            if file.endswith(".xml"):
-                file_list.append(f'.\\{os.path.join(root, file)}')
-    return file_list
-
-
 with open('README.md', 'r') as f:
     README = f.read()
 
@@ -26,7 +17,7 @@ setup(
     author_email='alexeysvetlov92@gmail.com',
     url='https://github.com/lanitgithub/jmeter_api',
     # license='MIT',
-    package_data={'': get_resources()},
+    include_package_data=True,
     packages=find_packages(),
     python_requires='>=3.6',
     install_requires=[

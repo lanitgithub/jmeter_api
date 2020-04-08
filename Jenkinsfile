@@ -10,7 +10,8 @@ pipeline {
   stages {  // Define the individual processes, or stages, of your CI pipeline
     stage('Remove old files') {
       steps {
-        sh label: 'Remove old files', script: "rm -rf ${env.WORKSPACE}"
+        sh label: 'Remove build folder', script: "rm -rf ${env.WORKSPACE}/build"
+        sh label: 'Remove dist folder', script: "rm -rf ${env.WORKSPACE}/dist"
       }
     }
     stage('Checkout') { // Checkout (git clone ...) the projects repository
